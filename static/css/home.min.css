@@ -1,0 +1,27 @@
+/*Mapa de cores*/
+body {
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  flex-grow: 1;
+  padding: 20px;
+  align-content: flex-start;
+}
+
+.grid_box {
+  background-color: #121212;
+  border-radius: 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

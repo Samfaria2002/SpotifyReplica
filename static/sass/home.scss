@@ -1,0 +1,40 @@
+/*Mapa de cores*/
+$cores: (
+    "cor_background": #000000,
+    "cor_box": #121212,
+    "cor_card": #181818,
+    "verde_spotify": #1ED760,
+);
+
+$format_grid_box: (
+    background-color: map-get($cores, "cor_box"),
+    border-radius: 10px,
+);
+
+body {
+    background-color: map-get($cores, "cor_background");
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    flex-grow: 1;
+    padding: 20px;
+    align-content: flex-start;
+}
+
+.grid_box {
+    @each $prop, $value in $format_grid_box {
+        #{$prop}: $value;
+    }
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
