@@ -92,16 +92,22 @@ div.main {
   height: 90px;
 }
 
-.option_procurar, .option_inicio {
-  padding-left: 23px;
-  font-size: 17px;
+.option_procurar > a, .option_inicio > a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding-left: 10px;
+  font-size: 16px;
   font-weight: 600;
-  cursor: pointer;
   transition: color 0.5s;
   color: #B3B3B3;
 }
-.option_procurar:hover, .option_inicio:hover {
+.option_procurar > a:hover, .option_inicio > a:hover {
   color: white;
+}
+
+.option_procurar > a > p, .option_inicio > a > p {
+  margin-left: 20px;
 }
 
 .inicio {
@@ -110,34 +116,51 @@ div.main {
   justify-content: space-evenly;
 }
 .inicio .option_inicio i, .inicio .option_procurar i {
-  font-size: 22px !important;
+  font-size: 21px !important;
 }
 .inicio .option_inicio a, .inicio .option_procurar a {
   margin-left: 15px;
 }
 
-.playlist {
+.grid_box.playlist .title_playlist {
   display: flex;
-  flex-direction: column;
-}
-
-div.title_playlist {
+  align-items: center;
   padding-left: 23px;
   padding-top: 20px;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
+}
+.grid_box.playlist .title_playlist .first_icons > a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
   cursor: pointer;
   transition: color 0.5s;
   color: #B3B3B3;
 }
-div.title_playlist:hover {
+.grid_box.playlist .title_playlist .first_icons > a:hover {
   color: white;
 }
-div.title_playlist i {
-  font-size: 22px !important;
-  display: inline-block;
+.grid_box.playlist .title_playlist .first_icons > a i {
   transform: rotate(-90deg);
+  font-size: 21px !important;
+  margin-top: -5px;
 }
-div.title_playlist a {
+.grid_box.playlist .title_playlist .first_icons > a p {
   margin-left: 15px;
+}
+.grid_box.playlist .title_playlist .second_icons {
+  margin-left: auto;
+  margin-right: 42px;
+  font-size: 10px !important;
+  transform: scale(3.4);
+}
+.grid_box.playlist .title_playlist .second_icons > a {
+  cursor: pointer;
+  transition: color 0.5s;
+  color: #B3B3B3;
+  text-decoration: none;
+}
+.grid_box.playlist .title_playlist .second_icons > a:hover {
+  color: white;
 }

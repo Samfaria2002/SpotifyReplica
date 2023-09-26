@@ -41,14 +41,6 @@ $cores: (
     "cor_fonte": #B3B3B3,
 );
 
-$icones: (
-    house: 'bi bi-house'
-    search: 'bi bi-search',
-    collection: 'bi bi-collection-fill',
-    plus: 'bi bi-plus',
-    arrow-right: 'bi bi-arrow-right-short'
-);
-
 $format_grid_box: (
     background-color: map-get($cores, "cor_box"),
     border-radius: 10px,
@@ -125,16 +117,22 @@ div.main {
     height: 90px;
 }
 
-.option_procurar, .option_inicio {
-    padding-left: 23px;
-    font-size: 17px;
+.option_procurar > a, .option_inicio > a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding-left: 10px;
+    font-size: 16px;
     font-weight: 600;
-    cursor: pointer;
     transition: color 0.5s;
     color: map-get($cores, "cor_fonte");
     &:hover {
         color: white;
     }
+}
+
+.option_procurar > a > p, .option_inicio > a > p {
+    margin-left: 20px;
 }
 
 .inicio{
@@ -144,7 +142,7 @@ div.main {
 
     .option_inicio, .option_procurar {
         i {
-            font-size: 22px !important;
+            font-size: 21px !important;
         }
         a {
             margin-left: 15px;
@@ -154,25 +152,54 @@ div.main {
 
 //
 
-.playlist {
-    display: flex;
-    flex-direction: column;
-}
-
-div.title_playlist {
-    display: flex;
-    flex-direction: row;
-    padding-left: 23px;
-    padding-top: 20px;
-    font-size: 17px;
-    font-weight: 600;
-}
-
-.first_icons, .second_first {
-    cursor: pointer;
-    transition: color 0.5s;
-    color: map-get($cores, "cor_fonte");
-    &:hover {
-        color: white;
+.grid_box.playlist {
+    .title_playlist {
+      display: flex;
+      align-items: center;
+      padding-left: 23px;
+      padding-top: 20px;
+      font-size: 16px;
+      font-weight: 600;
+  
+      .first_icons > a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 0.5s;
+        color: map-get($cores, "cor_fonte");
+  
+        &:hover {
+          color: white;
+        }
+  
+        i {
+          transform: rotate(-90deg);
+          font-size: 21px !important;
+          margin-top: -5px;
+        }
+  
+        p {
+          margin-left: 15px;
+        }
+      }
+  
+      .second_icons {
+        margin-left: auto;
+        margin-right: 42px;
+        font-size: 10px !important;
+        transform: scale(3.4);
+      }
+  
+      .second_icons > a {
+        cursor: pointer;
+        transition: color 0.5s;
+        color: map-get($cores, "cor_fonte");
+        text-decoration: none;
+  
+        &:hover {
+          color: white;
+        }
+      }
     }
-}
+  }
