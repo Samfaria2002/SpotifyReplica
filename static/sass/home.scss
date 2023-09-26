@@ -1,9 +1,52 @@
-/*Mapa de cores*/
+//Import Bootstrap Icons
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+@function font-face($font-family, $font-path, $font-format) {
+    @return (
+      font-family: '#{$font-family}',
+      src: url('#{$font-path}') format('#{$font-format}')
+    );
+  }
+  
+@mixin generate-font-face($font-families) {
+    @each $font-family, $font-path, $font-format in $font-families {
+      @font-face {
+        $font-face: font-face($font-family, $font-path, $font-format);
+        @each $property, $value in $font-face {
+          #{$property}: $value;
+        }
+      }
+    }
+}
+  
+$font-families: (
+    'CircularSpotifyText': '../fonts/CircularSpotifyText-Black.otf' 'opentype',
+    'CircularSpotifyText-BlackItalic': '../fonts/CircularSpotifyText-BlackItalic.otf' 'opentype',
+    'CircularSpotifyText-Bold': '../fonts/CircularSpotifyText-Bold.otf' 'opentype',
+    'CircularSpotifyText-Book': '../fonts/CircularSpotifyText-Book.otf' 'opentype',
+    'CircularSpotifyText-BookItalic': '../fonts/CircularSpotifyText-BookItalic.otf' 'opentype',
+    'CircularSpotifyText-Light': '../fonts/CircularSpotifyText-Light.otf' 'opentype',
+    'CircularSpotifyText-Medium': '../fonts/CircularSpotifyText-Medium.otf' 'opentype',
+    'CircularSpotifyText-MediumItalic': '../fonts/CircularSpotifyText-MediumItalic.otf' 'opentype'
+);
+  
+@include generate-font-face($font-families);
+
+//Mapa de cores
 $cores: (
     "cor_background": #000000,
     "cor_box": #121212,
     "cor_card": #181818,
     "verde_spotify": #1ED760,
+    "cor_fonte": #B3B3B3,
+);
+
+$icones: (
+    house: 'bi bi-house'
+    search: 'bi bi-search',
+    collection: 'bi bi-collection-fill',
+    plus: 'bi bi-plus',
+    arrow-right: 'bi bi-arrow-right-short'
 );
 
 $format_grid_box: (
@@ -11,10 +54,16 @@ $format_grid_box: (
     border-radius: 10px,
 );
 
+$container : (
+    margin: 0 auto,
+    padding: 0 2%,
+);
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'CircularSp', sans-serif;
 }
 
 body {
@@ -25,13 +74,13 @@ body {
     flex-direction: column;
 }
 
-.main {
+div.main {
     display: grid;
-    grid-template-columns: 410px 2fr; /* Ajuste a largura da primeira coluna conforme necessário */
+    grid-template-columns: 420px 2fr;
     grid-template-rows: auto auto;
-    grid-gap: 10px;
+    grid-gap: 8px;
     flex-grow: 1;
-    padding: 20px;
+    padding: 8px;
     align-content: flex-start;
 }
 
@@ -40,29 +89,29 @@ body {
         #{$prop}: $value;
     }
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
 }
 
 .grid_box:nth-child(1) {
     grid-column: 1;
     grid-row: 1;
+    height: 112px;
 }
 
 .grid_box:nth-child(2) {
     grid-column: 2;
     grid-row: 1 / span 2;
-    height: calc(100vh - 90px);
+    height: calc(100vh - 100px);
 }
 
 .grid_box:nth-child(3) {
     grid-column: 1;
     grid-row: 2;
-    height: calc(100vh - 90px);
+    max-height: calc(100vh - 220px);
+    height: 100vh;
     border-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
 }
 
 .footer{
@@ -74,4 +123,56 @@ body {
     left: 0;
     width: 100%;
     height: 90px;
+}
+
+.option_procurar, .option_inicio {
+    padding-left: 23px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.5s;
+    color: map-get($cores, "cor_fonte");
+    &:hover {
+        color: white;
+    }
+}
+
+.inicio{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .option_inicio, .option_procurar {
+        i {
+            font-size: 22px !important;
+        }
+        a {
+            margin-left: 15px;
+        }
+    }
+}
+
+//
+
+.playlist {
+    display: flex;
+    flex-direction: column;
+}
+
+div.title_playlist {
+    display: flex;
+    flex-direction: row;
+    padding-left: 23px;
+    padding-top: 20px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.first_icons, .second_first {
+    cursor: pointer;
+    transition: color 0.5s;
+    color: map-get($cores, "cor_fonte");
+    &:hover {
+        color: white;
+    }
 }
