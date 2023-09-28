@@ -47,19 +47,27 @@
 
             <div class="tags">
                 <div class="frame">
-                    <div class="tags_box">
+                    <div class="tags_box fade-on-hover">
                         <button class="fade-overflow" role="checkbox" aria-checked="false" tabindex="-1" style="will-change: transform, opacity;"><span>Playlists</span></button>
                     </div>
-                    <div class="tags_box">
+                    <div class="tags_box fade-on-hover">
                         <button class="fade-overflow" role="checkbox" aria-checked="false" tabindex="-1" style="will-change: transform, opacity;"><span>Artistas</span></button>
                     </div>
-                    <div class="tags_box">
+                    <div class="tags_box fade-on-hover">
                         <button class="fade-overflow" role="checkbox" aria-checked="false" tabindex="-1" style="will-change: transform, opacity;"><span>Álbuns</span></button>
                     </div>
-                    <div class="tags_box">
+                    <div class="tags_box fade-on-hover">
                         <button class="fade-overflow" role="checkbox" aria-checked="false" tabindex="-1" style="will-change: transform, opacity;"><span>Podcasts e Programas</span></button>
                     </div>
+                    <div class="scroll_arrow left">
+                        <i class="bi bi-arrow-left"></i>
+                    </div>
+                    <div class="scroll_arrow right">
+                        <i class="bi bi-arrow-right"></i>
+                    </div>
+                    <!--
                     <div class="scroll_bar"></div>
+                    -->
                 </div>
             </div>
         </section>
@@ -78,30 +86,6 @@
         </div>
     </footer>
 
-    <script>
-        const container = document.querySelector('.frame');
-        const buttons = document.querySelector('.tags_box');
-        const scrollBar = document.querySelector('.scroll-bar');
-
-        scrollBar.addEventListener('mousedown', startScroll);
-
-        function startScroll(event) {
-            const initialX = event.clientX;
-            const initialScrollLeft = container.scrollLeft;
-
-            document.addEventListener('mousemove', scroll);
-            document.addEventListener('mouseup', stopScroll);
-
-            function scroll(event) {
-                const deltaX = event.clientX - initialX;
-                container.scrollLeft = initialScrollLeft - deltaX;
-            }
-
-            function stopScroll() {
-                document.removeEventListener('mousemove', scroll);
-                document.removeEventListener('mouseup', stopScroll);
-            }
-        }
-    </script>
+    <script src="{{ url_for('static', filename='js/arrow_tag.js') }}"></script>
 </body>
 </html>
