@@ -92,7 +92,8 @@ div.main {
   height: 90px;
 }
 
-.option_procurar > a, .option_inicio > a {
+.option_procurar > a,
+.option_inicio > a {
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -102,11 +103,9 @@ div.main {
   transition: color 0.5s;
   color: #B3B3B3;
 }
-.option_procurar > a:hover, .option_inicio > a:hover {
-  color: white;
-}
 
-.option_procurar > a > p, .option_inicio > a > p {
+.option_procurar > a > p,
+.option_inicio > a > p {
   margin-left: 20px;
 }
 
@@ -115,13 +114,18 @@ div.main {
   flex-direction: column;
   justify-content: space-evenly;
 }
-.inicio .option_inicio i, .inicio .option_procurar i {
+.inicio .option_inicio i,
+.inicio .option_procurar i {
   font-size: 21px !important;
 }
-.inicio .option_inicio a, .inicio .option_procurar a {
+.inicio .option_inicio a,
+.inicio .option_procurar a {
   margin-left: 15px;
 }
 
+.grid_box.playlist {
+  max-width: 420px;
+}
 .grid_box.playlist .title_playlist {
   display: flex;
   align-items: center;
@@ -163,4 +167,42 @@ div.main {
 }
 .grid_box.playlist .title_playlist .second_icons > a:hover {
   color: white;
+}
+.grid_box.playlist div.tags {
+  padding: 5% 5%;
+  width: 100%;
+}
+.grid_box.playlist div.tags .frame {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+}
+.grid_box.playlist div.tags .frame .tags_box {
+  display: flex;
+}
+.grid_box.playlist div.tags .frame .tags_box button {
+  background-color: #232323;
+  flex-shrink: 0;
+  text-align: center;
+  padding: 5px 10px;
+  margin: 0 5px;
+  color: white;
+  height: 35px;
+  border: none;
+  border-radius: 30px;
+}
+.grid_box.playlist div.tags .frame .scroll_bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  border-radius: 20px;
+  background-color: gray;
+  cursor: pointer;
 }

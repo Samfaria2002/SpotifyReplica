@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="main">
+
         <section class="grid_box inicio">
             <div class="option_inicio">
                 <a href="">
@@ -23,11 +24,13 @@
                 </a>
             </div>
         </section>
+
         <section class="grid_box cards">
             <div>
 
             </div>
         </section>
+
         <section class="grid_box playlist">
             <div class="title_playlist">
                 <div class="first_icons">
@@ -41,8 +44,28 @@
                     <a href=""><i class="bi bi-arrow-right-short"></i></a>
                 </div>
             </div>
+
+            <div class="tags">
+                <div class="frame">
+                    <div class="tags_box">
+                        <button class="fade-overflow" role="checkbox" aria-checked="false" tabindex="-1" style="will-change: transform, opacity;"><span>Playlists</span></button>
+                    </div>
+                    <div class="tags_box">
+                        <button class="fade-overflow" role="checkbox" aria-checked="false" tabindex="-1" style="will-change: transform, opacity;"><span>Artistas</span></button>
+                    </div>
+                    <div class="tags_box">
+                        <button class="fade-overflow" role="checkbox" aria-checked="false" tabindex="-1" style="will-change: transform, opacity;"><span>Álbuns</span></button>
+                    </div>
+                    <div class="tags_box">
+                        <button class="fade-overflow" role="checkbox" aria-checked="false" tabindex="-1" style="will-change: transform, opacity;"><span>Podcasts e Programas</span></button>
+                    </div>
+                    <div class="scroll_bar"></div>
+                </div>
+            </div>
         </section>
+
     </div>
+
     <footer class="footer">
         <div>
 
@@ -54,5 +77,31 @@
 
         </div>
     </footer>
+
+    <script>
+        const container = document.querySelector('.frame');
+        const buttons = document.querySelector('.tags_box');
+        const scrollBar = document.querySelector('.scroll-bar');
+
+        scrollBar.addEventListener('mousedown', startScroll);
+
+        function startScroll(event) {
+            const initialX = event.clientX;
+            const initialScrollLeft = container.scrollLeft;
+
+            document.addEventListener('mousemove', scroll);
+            document.addEventListener('mouseup', stopScroll);
+
+            function scroll(event) {
+                const deltaX = event.clientX - initialX;
+                container.scrollLeft = initialScrollLeft - deltaX;
+            }
+
+            function stopScroll() {
+                document.removeEventListener('mousemove', scroll);
+                document.removeEventListener('mouseup', stopScroll);
+            }
+        }
+    </script>
 </body>
 </html>
