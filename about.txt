@@ -1,4 +1,4 @@
 Html, CSS, Javascript
-Sass, GULP
+Sass, GULP, Jinja2
 Flask, React
 Firebase, Firebase-Hosting
