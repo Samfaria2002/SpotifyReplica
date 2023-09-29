@@ -1,32 +1,31 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 from routes.rotas import Bp
 from flask_assets import Environment, Bundle
-import datetime
-
-x = datetime.datetime.now()
+from flask_cors import CORS
+import firebase_admin
+from firebase_admin import credentials, auth
 
 app = Flask(__name__)
+CORS(app)
 app.register_blueprint(Bp)
 assets = Environment(app)
 
-home = Bundle('sass/home.scss', filters='pyscss', output='css/home.css')
-assets.register('home', home)
+cred = credentials.Certificate()
+firebase_admin.initialize_app(cred)
 
-@app.route('/home')
-def home():
-    return render_template('home.html', assets=assets)
+@app.route('/register', methods=['POST'])
+def register():
+    try:
+        email = request.json.get('email')
+        password = request.json.get('password')
 
-# Route for seeing a data
-@app.route('/data')
-def get_time():
- 
-    # Returning an api for showing in  reactjs
-    return {
-        'Name':"geek",
-        "Age":"22",
-        "Date": x,
-        "programming":"python"
-        }
+        user = auth.create_user(
+            email = email,
+            password = password
+        )
+        return jsonify({'message': 'Usuário registrado com sucesso!'})
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
 if __name__ == '__main__':
     app.run(debug=True)
