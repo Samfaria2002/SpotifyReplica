@@ -1,3 +1,4 @@
 Html, CSS, Javascript
 Sass, GULP
-Flask
+Flask, React
+Firebase, Firebase-Hosting
