@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, render_template, url_for, jsonify, request
+from flask import Flask, Blueprint, render_template, url_for, jsonify, request, send_file
 from flask_assets import Environment
 from firebase_admin import credentials, auth
 
@@ -9,7 +9,7 @@ def home():
     return render_template('home.html')
 
 
-@Bp.route('/register', methods=['POST'])
+@Bp.route('/login', methods=['POST'])
 def register():
     try:
         data = request.json

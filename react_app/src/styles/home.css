@@ -1,35 +1,35 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 @font-face {
   font-family: "CircularSpotifyText";
-  src: url("../fonts/CircularSpotifyText-Black.otf") format("opentype");
+  src: url("../../../static/fonts/CircularSpotifyText-Black.otf") format("opentype");
 }
 @font-face {
   font-family: "CircularSpotifyText-BlackItalic";
-  src: url("../fonts/CircularSpotifyText-BlackItalic.otf") format("opentype");
+  src: url("../../../static/fonts/CircularSpotifyText-BlackItalic.otf") format("opentype");
 }
 @font-face {
   font-family: "CircularSpotifyText-Bold";
-  src: url("../fonts/CircularSpotifyText-Bold.otf") format("opentype");
+  src: url("../../../static/fonts/CircularSpotifyText-Bold.otf") format("opentype");
 }
 @font-face {
   font-family: "CircularSpotifyText-Book";
-  src: url("../fonts/CircularSpotifyText-Book.otf") format("opentype");
+  src: url("../../../static/fonts/CircularSpotifyText-Book.otf") format("opentype");
 }
 @font-face {
   font-family: "CircularSpotifyText-BookItalic";
-  src: url("../fonts/CircularSpotifyText-BookItalic.otf") format("opentype");
+  src: url("../../../static/fonts/CircularSpotifyText-BookItalic.otf") format("opentype");
 }
 @font-face {
   font-family: "CircularSpotifyText-Light";
-  src: url("../fonts/CircularSpotifyText-Light.otf") format("opentype");
+  src: url("../../../static/fonts/CircularSpotifyText-Light.otf") format("opentype");
 }
 @font-face {
   font-family: "CircularSpotifyText-Medium";
-  src: url("../fonts/CircularSpotifyText-Medium.otf") format("opentype");
+  src: url("../../../static/fonts/CircularSpotifyText-Medium.otf") format("opentype");
 }
 @font-face {
   font-family: "CircularSpotifyText-MediumItalic";
-  src: url("../fonts/CircularSpotifyText-MediumItalic.otf") format("opentype");
+  src: url("../../../static/fonts/CircularSpotifyText-MediumItalic.otf") format("opentype");
 }
 * {
   margin: 0;
